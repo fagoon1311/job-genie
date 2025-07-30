@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
+import { HeaderWrapper } from "@/components/headerWrapper";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -25,7 +26,7 @@ export default function RootLayout({
         className={`${inter.className}`}
       >
         <ThemeProvider attribute={"class"} defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <Header />
+          <HeaderWrapper />
           <main className="min-h-screen">{children}</main>
           <footer>
             <div className="text-center py-4">
