@@ -3,6 +3,7 @@ import {db} from "./prisma";
 
 export const checkUser = async () => {
     const user = await currentUser();
+    // console.log("Checking user:", user);
     if (!user){
         return null
     }
@@ -21,10 +22,11 @@ export const checkUser = async () => {
             data:{
                 clerkUserId: user.id,
                 name,
-                imageURL: user.imageUrl || undefined,
+                imageUrl: user.imageUrl || undefined,
                 email: user.emailAddresses[0]?.emailAddress,
             }
         })
+        console.log("New user created:", newUser);
         return newUser;
     } catch (error: string | any) {
         console.error("Error checking user:", error.message);

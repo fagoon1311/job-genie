@@ -6,8 +6,9 @@ import Header from "@/components/header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { HeaderWrapper } from "@/components/headerWrapper";
+// import { HeaderWrapper } from "@/components/headerWrapper";
 
-const inter = Inter({subsets: ["latin"]});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Job Genie ",
@@ -20,25 +21,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider appearance={{baseTheme: dark}} >
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.className}`}
-      >
-        <ThemeProvider attribute={"class"} defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <HeaderWrapper />
-          <main className="min-h-screen">{children}</main>
-          <footer>
-            <div className="text-center py-4">
-              <p className="text-sm text-gray-500">
-                © {new Date().getFullYear()} Job Genie. All rights reserved.
-              </p>
-            </div>
-          </footer>
-          
+    <ClerkProvider appearance={{ baseTheme: dark }}>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${inter.className}`}>
+          <ThemeProvider
+            attribute={"class"}
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <HeaderWrapper />
+            <main className="min-h-screen">{children}</main>
+            <footer>
+              <div className="text-center py-4">
+                <p className="text-sm text-gray-500">
+                  © {new Date().getFullYear()} Job Genie. All rights reserved.
+                </p>
+              </div>
+            </footer>
           </ThemeProvider>
-      </body>
-    </html>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }

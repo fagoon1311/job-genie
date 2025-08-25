@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Briefcase, FileText, FileSignature, Menu, X } from "lucide-react";
 
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -23,7 +24,7 @@ const Header = () => {
         <span>Jobs</span>
       </Link>
       <Link
-        href="/resumebuilder"
+        href="/resume"
         className="flex items-center space-x-2 text-sm font-medium text-white hover:text-[#008CA1]"
         onClick={onClick}
       >
@@ -71,11 +72,13 @@ const Header = () => {
         <div className="hidden md:flex items-center gap-4">
           <SignedOut>
             <SignInButton>
-              <Button variant="blue">Sign In</Button>
+              <Button variant="blue" className="w-full">
+                Sign In
+              </Button>
             </SignInButton>
           </SignedOut>
           <SignedIn>
-            <UserButton />
+            <UserButton appearance={{elements:{avatarBox:"w-10 h-10", userButtonPopoverCard: "shadow-xl", userPreviewMainIdentifier: "font-semibold"}}}  afterSignOutUrl="/"/>
           </SignedIn>
         </div>
       </nav>
